@@ -15,8 +15,14 @@ type Config struct {
 	AllowWrite     bool
 }
 
+// DefaultEnvFile follows XDG ($XDG_CONFIG_HOME, else ~/.config) on every OS;
+// os.UserConfigDir would pick ~/Library/Application Support on macOS.
 func DefaultEnvFile() string {
-	dir, _ := os.UserConfigDir()
+	dir := os.Getenv("XDG_CONFIG_HOME")
+	if dir == "" {
+		home, _ := os.UserHomeDir()
+		dir = filepath.Join(home, ".config")
+	}
 	return filepath.Join(dir, "kitafino", "env")
 }
 
