@@ -139,6 +139,7 @@ func run(ctx context.Context, srv *mcp.Server, ready func() error, args []string
 Credentials: KITAFINO_USERNAME, KITAFINO_PASSWORD as environment variables
 or in ~/.config/kitafino/env. Write commands require KITAFINO_ALLOW_WRITE=1.`,
 		Example:       "  kitafino-cli menu --date 2026-10-12 --json | jq '.days[] | {date, meals: [.meals[].name]}'",
+		Version:       versionString(),
 		SilenceUsage:  true,
 		SilenceErrors: true,
 	}

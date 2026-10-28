@@ -36,6 +36,7 @@
           ldflags = [
             "-s"
             "-w"
+            "-X main.version=${version}"
           ];
           meta.mainProgram = "kitafino-cli";
         };
