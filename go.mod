@@ -1,6 +1,6 @@
 module kitafino-cli
 
-go 1.27
+go 1.27.3
 
 require (
 	github.com/PuerkitoBio/goquery v1.13.0
